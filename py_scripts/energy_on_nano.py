@@ -7,16 +7,28 @@
 import os
 
 #print (os.listdir())
-x = os.listdir()
-print (x)
+path = "/home/gavrielides/python_dataset/py_scripts"
+x = os.listdir(path)
+j = 448
+#print (x)
 for i in x: 
-    print ("python script: "+ i)
+    j= j+1
+    print ("python script: "+ i)   #x[j]
     qoutes = '"'
     if ((i != "energy_on_nano.py") and (i != "README.md")):
-        command = "python measure_time_energy.py " + qoutes + "python " + i + qoutes + " 2"
+        command = "python measure_time_energy.py " + qoutes + "python3 " + i + qoutes + " 2"
         #print ("python measure_time_energy.py " + qoutes + "python example.py" + qoutes + " 2")
-        print (command)
-        #os.system(command)
+        #print (command)
+	try:
+        	os.system(command)
+	except ModuleNotFoundError:
+		print ("INSTALL THE LIBRARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		break
     #else:
         #print ("found " + i)
+    #if ImportError:
+     #   print ("ERRORRRRRRRRRRR download the needed library")
+      #  break
+    #decision = input("Everything OK? (1 for yes/0 for no) \n")
+    #if (decision == 0): break
     print ("-----------------------------------------")
